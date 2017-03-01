@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../../favicon.ico">
+
+	<title>Angular test</title>
+	<link href="resources/style.css" rel="stylesheet" />
+</head>
+
+<body ng-app="test">
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Angular 2 test</a>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="starter-template" ng-controller="list">
+			<form>
+				<div class="form-group">
+					<label for="First name">First name:</label>
+					<input type="First name" class="form-control" ng-model="first">
+				</div>
+				<div class="form-group">
+					<label for="Last name">Last name:</label>
+					<input type="Last name" class="form-control" ng-model="last">
+				</div>
+				<div class="form-group">
+					<label for="User name">User name:</label>
+					<input type="User name" class="form-control" ng-model="username">
+				</div>
+				<button type="submit" ng-click="addUser()" class="btn btn-default">Add</button>
+			</form>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Username</th>
+					</tr>
+				</thead>
+				<tbody ng-repeat="row in list track by $index">
+					<tr>
+						<td>{{$index + 1}}</td>
+						<td>{{row.first}}</td>
+						<td>{{row.last}}</td>
+						<td>{{row.username}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script src="bundle.js"></script>
+</body>
+</html>
