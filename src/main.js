@@ -1,21 +1,36 @@
 'use strict'
 
 import { Angular } from 'angular';
-import { Men } from './men';
+import { StorageController, User } from './behavior';
 
 require('./style.css');
 require('bootstrap/dist/css/bootstrap.min.css');
-require('bootstrap/dist/js/bootstrap.min.js');
 
 var app = angular.module('test', []);
 
-app.controller('list', function ($scope) {
+app.service('userList', function () {
 
-	$scope.list = [];
+	return { items: StorageController.get() };
+})
+
+app.controller('list', function ($scope, userList) {console.log($scope)
+
+	$scope.list = userList.items;
+})
+
+app.controller('userform', function ($scope, userList) {
 
 	$scope.addUser = function () {
 
-		var men = new Men($scope);
-		men.create($scope.list);
+		var user = new User($scope);
+
+		user.create(userList.items)
+			.then(() => {
+				$scope.validation = {};
+			})
+			.catch((fields) => {
+
+				$scope.validation = fields;
+			});
 	}
 })
