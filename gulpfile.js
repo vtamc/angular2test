@@ -1,11 +1,11 @@
 var gulp = require("gulp");
 var gutil = require("gulp-util");
 var webpack = require("webpack");
+var exec = require('gulp-exec');
 
 //building js with dependencies by webpack
 gulp.task("default", function(callback) {
 
-	gutil.log("[mocha]", 'test before building');
 	gulp.start('test');
 
 	webpack(require('./webpack.config.js'), 
@@ -19,6 +19,9 @@ gulp.task("default", function(callback) {
 			callback();
 		}
 	);
+
+	gulp.src("./src/*.js")
+		.pipe(exec('jsdoc src/ -r -t /usr/local/lib/node_modules/docdash/ -d doc'))
 });
 
 require('gulp-npm-test')(gulp, {
