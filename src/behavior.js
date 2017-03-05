@@ -97,7 +97,6 @@ class User {
 }
 
 export {
-
 	StorageController,
 	User
 };

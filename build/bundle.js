@@ -7509,7 +7509,6 @@ app.controller('userform', function ($scope, userList) {
 				$scope.validation = {};
 			})
 			.catch((fields) => {
-
 				$scope.validation = fields;
 			});
 	}
