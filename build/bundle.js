@@ -7493,7 +7493,7 @@ app.service('userList', function () {
 	return { items: __WEBPACK_IMPORTED_MODULE_1__behavior__["a" /* StorageController */].get() };
 })
 
-app.controller('list', function ($scope, userList) {console.log($scope)
+app.controller('list', function ($scope, userList) {
 
 	$scope.list = userList.items;
 })

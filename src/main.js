@@ -13,7 +13,7 @@ app.service('userList', function () {
 	return { items: StorageController.get() };
 })
 
-app.controller('list', function ($scope, userList) {console.log($scope)
+app.controller('list', function ($scope, userList) {
 
 	$scope.list = userList.items;
 })
